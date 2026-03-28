@@ -16,20 +16,20 @@ It acts as a central hub for:
 ## 🔗 Project Links
 
 ### Repository
-- GitHub: [LINK HERE]
+- GitHub: [[isekaistudios1025-git/GameName-GameJam-Game: GameName GameJam Game (2.5D Beat Em Up)](https://github.com/isekaistudios1025-git/GameName-GameJam-Game)]
 
 ---
 
 ### Collaboration
 
-- Miro Board: [LINK HERE]
-- Discord: [LINK HERE]
+- Miro Board: [[ISEKAI STUDIOS - Miro](https://miro.com/app/board/uXjVJXH_rpQ=/)]
+- Discord: [[LINK HERE](https://discord.gg/AvaZC324Y)]
 
 ---
 
 ### Build / Hosting
 
-- Itch.io Page: [LINK HERE]
+- Itch.io Page: [TBD]
 
 ---
 
