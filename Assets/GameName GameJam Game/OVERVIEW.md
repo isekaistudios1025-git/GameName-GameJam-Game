@@ -205,14 +205,24 @@ Each zone:
 ## 👥 Team Roles
 
 - Programmer(s)
-    
+	- Player Controller
+		- Peacebaby
+	- UI UX
+		- Keon Fryson
+	- Enemy AI
+		- DevBunny
+	- Level / Game Mechanics
+		- DaJagerBomb
 - Artist(s)
-    
+	- The-Pickle-Man		
 - Designer
-    
+	- DaJagerBomb
 - Audio (optional)
-    
-
+	- AgentGhostJr
+	    
+- Producer(s)
+	- GeoBoshi
+	- Kcobra
 ---
 
 ## 🎨 Art Pipeline (IMPORTANT)
@@ -234,7 +244,7 @@ Each character requires:
 
 ## 🛠️ Tech
 
-- Engine: Unity
+- Engine: Unity 6.3
     
 - Platform: Windows / Web
     
