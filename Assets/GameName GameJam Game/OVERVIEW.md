@@ -217,9 +217,8 @@ Each zone:
 	- The-Pickle-Man		
 - Designer
 	- DaJagerBomb
-- Audio (optional)
-	- AgentGhostJr
-	    
+- Audio
+	- AgentGhostJr	    
 - Producer(s)
 	- GeoBoshi
 	- Kcobra
