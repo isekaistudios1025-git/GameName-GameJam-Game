@@ -1,23 +1,15 @@
-// --- PlayerController.cs  START ---
-
+// ----- PlayerController.cs  START -----
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : ActorController
 {
-    [SerializeField] private float moveSpeed = 6f;
-
-    private Rigidbody rb;
     private PlayerControls controls;
     private Vector2 moveInput;
 
-    private void Awake()
+    protected override void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-
-        rb.useGravity = false;
-        rb.freezeRotation = true;
-
+        base.Awake();
         controls = new PlayerControls();
     }
 
@@ -35,16 +27,14 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = controls.Player.Move.ReadValue<Vector2>();
 
-        if (moveInput.x != 0)
+        Move(new Vector3(moveInput.x, 0f, moveInput.y));
+
+        if (controls.Player.Attack.triggered)
         {
-            transform.localScale = new Vector3(Mathf.Sign(moveInput.x), 1f, 1f);
+            Attack();
         }
     }
-
-    private void FixedUpdate()
-    {
-        Vector3 movement = new Vector3(moveInput.x, 0f, moveInput.y);
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-    }
 }
-// --- PlayerController.cs  END ---
+
+
+// --- PlayerController.cs  END -----
