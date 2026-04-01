@@ -1,4 +1,3 @@
-using System.Threading;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -6,16 +5,27 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawn Settings")]
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float spawnInterval = 2f;
-    [SerializeField] private Transform player;
 
     private float timer;
+    private Transform player;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        GameObject foundPlayer = GameObject.Find("Player");
+
+        if (foundPlayer != null)
+        {
+            player = foundPlayer.transform;
+        }
+    }
+
     void Update()
     {
+        if (player == null) return;
+
         timer += Time.deltaTime;
-        
-        if(timer >= spawnInterval)
+
+        if (timer >= spawnInterval)
         {
             SpawnEnemy();
             timer = 0f;
@@ -24,7 +34,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Vector3 spawnPosition = transform.position + new Vector3(0f, 1f, 0f);
+        Vector3 spawnPosition = transform.position;
+        spawnPosition.y = player.position.y;
 
         GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
 
