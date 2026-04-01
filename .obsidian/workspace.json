@@ -1,0 +1,193 @@
+{
+  "main": {
+    "id": "72e66978f0f81184",
+    "type": "split",
+    "children": [
+      {
+        "id": "ee4cef4f75c2230c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f2d8c738cd36e047",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Assets/GameName GameJam Game/OVERVIEW.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "OVERVIEW"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4d1fa3271f1f0d84",
+    "type": "split",
+    "children": [
+      {
+        "id": "0a5a0103529d0e57",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "05142fcbea95ca70",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "697b744923c3508d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "5ef00d996219a702",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a0c3f13b5a39d9fc",
+    "type": "split",
+    "children": [
+      {
+        "id": "7f3e95b1c00f547c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9e4345c2f068fbe4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Assets/GameName GameJam Game/OVERVIEW.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for OVERVIEW"
+            }
+          },
+          {
+            "id": "ca6cc60b50366744",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Assets/GameName GameJam Game/OVERVIEW.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from OVERVIEW"
+            }
+          },
+          {
+            "id": "f85a11a94483bc6a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "e154bcb614c66c93",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "7845eeea912f010b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Assets/GameName GameJam Game/OVERVIEW.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of OVERVIEW"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "f2d8c738cd36e047",
+  "lastOpenFiles": [
+    "Assets/Art/Brantley_Sean_ Lady2Portrait.ai",
+    "Assets/Art",
+    "Assets/GameName GameJam Game/04_UI_UX/HUD_Design.md",
+    "Assets/GameName GameJam Game/01_Design/Combat_System.md"
+  ]
+}
