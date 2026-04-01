@@ -1,4 +1,4 @@
-// ----- PlayerController.cs  START -----
+// ----- PlayerController.cs START -----
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,14 +7,26 @@ public class PlayerController : ActorController
     private PlayerControls controls;
     private Vector2 moveInput;
 
+    private Transform visuals;
+    private Animator animator;
+
     protected override void Awake()
     {
         base.Awake();
+
         controls = new PlayerControls();
+
+        visuals = transform.Find("Visuals");
+        animator = visuals.GetComponent<Animator>();
     }
 
     private void OnEnable()
     {
+        if (controls == null)
+        {
+            controls = new PlayerControls();
+        }
+
         controls.Enable();
     }
 
@@ -29,12 +41,21 @@ public class PlayerController : ActorController
 
         Move(new Vector3(moveInput.x, 0f, moveInput.y));
 
+        // animate walk / idle
+        animator.SetBool("IsMoving", moveInput != Vector2.zero);
+
+        // flip only visuals
+        if (moveInput.x != 0)
+        {
+            visuals.localScale = new Vector3(Mathf.Sign(moveInput.x), 1f, 1f);
+        }
+
         if (controls.Player.Attack.triggered)
         {
             Attack();
+            //ill add attack and death anim later, just want to get the basic movement and attack working first
+            //animator.SetTrigger("Attack");
         }
     }
 }
-
-
-// --- PlayerController.cs  END -----
+// ----- PlayerController.cs END -----
