@@ -1,4 +1,3 @@
-
 // ----- ActorController.cs START -----
 using UnityEngine;
 
@@ -7,9 +6,22 @@ public abstract class ActorController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] protected float moveSpeed = 6f;
 
+    [Header("Combat")]
+    [SerializeField] protected float attackRadius = 1f;
+    [SerializeField] protected float attackOffset = 1f;
+    [SerializeField] protected int attackDamage = 1;
+
+
+    [Header("Health")]
+    [SerializeField] protected int maxHealth = 3;
+
+    protected int currentHealth;
+
     protected Rigidbody rb;
     protected Vector3 moveDirection;
-    //protected bool isInvincible;
+
+    // shared facing direction for visuals + attack direction
+    protected float facingDirection = 1f;
 
     protected virtual void Awake()
     {
@@ -17,6 +29,8 @@ public abstract class ActorController : MonoBehaviour
 
         rb.useGravity = false;
         rb.freezeRotation = true;
+
+        currentHealth = maxHealth;
     }
 
     protected virtual void FixedUpdate()
@@ -28,9 +42,10 @@ public abstract class ActorController : MonoBehaviour
     {
         moveDirection = direction.normalized;
 
+        // update facing without flipping root collider
         if (direction.x != 0)
         {
-            transform.localScale = new Vector3(Mathf.Sign(direction.x), 1f, 1f);
+            facingDirection = Mathf.Sign(direction.x);
         }
     }
 
@@ -38,21 +53,41 @@ public abstract class ActorController : MonoBehaviour
     {
         Debug.Log($"{name} attacks");
 
-        Vector3 attackOrigin = transform.position + transform.right * transform.localScale.x;
-        float attackRadius = 1f;
+        Vector3 attackOrigin = transform.position + Vector3.right * facingDirection * attackOffset;
 
         Collider[] hits = Physics.OverlapSphere(attackOrigin, attackRadius);
 
         foreach (Collider hit in hits)
         {
-            if (hit.gameObject != gameObject)
+            if (hit.gameObject == gameObject) continue;
+
+            ActorController other = hit.GetComponent<ActorController>();
+
+            if (other != null)
             {
-                Debug.Log($"{name} hit {hit.name}");
+                other.TakeDamage(attackDamage);
+                Debug.Log($"{name} hit {other.name} for {attackDamage}");
             }
         }
     }
+    public virtual void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
 
-    // I will pop this in next, but I want to get the basic movement and attack working first, then we can add the jump and interact functionality as needed
+        Debug.Log($"{name} took {damage} damage. HP: {currentHealth}");
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+    public virtual void Die()
+    {
+        Debug.Log($"{name} died");
+
+        Destroy(gameObject);
+    }
+
     public virtual void Jump()
     {
         Debug.Log($"{name} jumps");
@@ -63,31 +98,15 @@ public abstract class ActorController : MonoBehaviour
         Debug.Log($"{name} interacts");
     }
 
+    // future shared hook for invincible mode
+    // protected bool isInvincible;
+    // public virtual void SetInvincible(bool value) => isInvincible = value;
 
-    //future hook for the invincable mode (we can use this in both enemies and players)
-
-    //public virtual void SetInvincible(bool value)
-    //{
-    //    isInvincible = value;
-    //}
-
-
-    //--------------  HELPERS  --------------------------
-    //---------------------------------------------------
-
-
-
-
-    //this is strictly for debugging purposes, to visualize the attack range in the editor
     private void OnDrawGizmosSelected()
     {
-        Vector3 attackOrigin = transform.position + transform.right * transform.localScale.x;
+        Vector3 attackOrigin = transform.position + Vector3.right * facingDirection * attackOffset;
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackOrigin, 1f);
+        Gizmos.DrawWireSphere(attackOrigin, attackRadius);
     }
-
-
-
 }
-
 // ----- ActorController.cs END -----
