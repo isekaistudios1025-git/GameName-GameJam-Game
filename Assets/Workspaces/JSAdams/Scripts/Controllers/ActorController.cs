@@ -81,7 +81,7 @@ public abstract class ActorController : MonoBehaviour
 
             ActorController other = hit.GetComponent<ActorController>();
 
-            if (other != null)
+            if (other != null && other.GetType() != GetType())
             {
                 other.TakeDamage(attackDamage);
                 Debug.Log($"{name} hit {other.name} for {attackDamage}");
