@@ -27,12 +27,15 @@ public class EnemySpawner : MonoBehaviour
     private float timer;
 
     private int currentWaveIndex = 0;
+    public int CurrentWaveIndex => currentWaveIndex;
+
     private int currentEnemyTypeIndex = 0;
     private int spawnedCountForCurrentType = 0;
 
     private int totalEnemiesSpawnedThisWave = 0;
     private int totalEnemiesInWave = 0;
     private int aliveEnemiesInWave = 0;
+    public int AliveEnemiesInWave => aliveEnemiesInWave;
 
     private bool finishedSpawningWave = false;
 
