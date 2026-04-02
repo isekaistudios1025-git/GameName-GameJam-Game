@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class AnimatedScore : MonoBehaviour
 {
+    public static AnimatedScore Instance { get; private set; }
+
     public TextMeshProUGUI scoreText;
 
     private int currentScore = 0;
@@ -18,20 +20,15 @@ public class AnimatedScore : MonoBehaviour
 
     void Start()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         originalScale = scoreText.transform.localScale;
         UpdateText();
     }
-
-    void Update()
-    {
-        // For testing: Press space to add score
-        if (Keyboard.current.qKey.wasPressedThisFrame)
-        {
-            Debug.Log("Adding score");
-            AddScore(100);
-        }
-    }
-
+ 
     public void AddScore(int amount)
     {
         currentScore += amount;

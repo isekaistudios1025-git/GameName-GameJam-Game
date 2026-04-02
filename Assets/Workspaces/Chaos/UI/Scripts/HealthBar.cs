@@ -42,4 +42,11 @@ public class HealthBar : MonoBehaviour
         healthbarText.text = $"{currentHealth}/{maxHealth}";
     }
 
+    private void UpdatePlayerLives(int lives)
+    {
+        playerLivesText.text = $"{lives}";
+    }
+
+
+   
 }
