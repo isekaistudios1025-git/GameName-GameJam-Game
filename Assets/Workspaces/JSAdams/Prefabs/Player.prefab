@@ -49,6 +49,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 6
+  attackRadius: 1
+  attackOffset: 1
+  attackDamage: 1
+  maxHealth: 10
+  hurtStunDuration: 0.1
 --- !u!54 &7985616053077311828
 Rigidbody:
   m_ObjectHideFlags: 0

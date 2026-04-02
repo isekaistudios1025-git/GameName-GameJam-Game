@@ -57,5 +57,28 @@ public class PlayerController : ActorController
             animator.SetTrigger("Attack");
         }
     }
+
+    public override void Hurt()
+    {
+        base.Hurt();
+        animator.SetTrigger("Hurt");
+    }
+
+    public override void Die()
+    {
+        canMove = false;
+        animator.SetTrigger("Die");
+
+        Debug.Log($"{name} player death");
+
+        Invoke(nameof(OnDeathAnimationFinished), 0.4f);
+    }
+    public void OnDeathAnimationFinished()
+    {
+        Debug.Log("GAME OVER");
+        gameObject.SetActive(false);
+    }
+
+
 }
 // ----- PlayerController.cs END -----
