@@ -11,11 +11,32 @@ public class EnemyController : ActorController
 
     private float attackTimer;
 
+    private Transform visuals;
+    private Animator animator;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        visuals = transform.Find("Visuals");
+
+        if (visuals != null)
+        {
+            animator = visuals.GetComponent<Animator>();
+        }
+    }
+
     void Update()
     {
         if (player == null)
         {
             Move(Vector3.zero);
+
+            if (animator != null)
+            {
+                animator.SetBool("IsMoving", false);
+            }
+
             return;
         }
 
@@ -27,17 +48,39 @@ public class EnemyController : ActorController
         if (distanceToPlayer > stopDistance)
         {
             Move(directionToPlayer);
+
+            if (animator != null)
+            {
+                animator.SetBool("IsMoving", true);
+            }
+
+            if (directionToPlayer.x != 0 && visuals != null)
+            {
+                visuals.localScale = new Vector3(Mathf.Sign(directionToPlayer.x), 1f, 1f);
+            }
+
             attackTimer = 0f;
         }
         else
         {
             Move(Vector3.zero);
 
+            if (animator != null)
+            {
+                animator.SetBool("IsMoving", false);
+            }
+
             attackTimer += Time.deltaTime;
 
             if (attackTimer >= attackCooldown)
             {
                 Attack();
+
+                if (animator != null)
+                {
+                    animator.SetTrigger("Attack");
+                }
+
                 attackTimer = 0f;
             }
         }
