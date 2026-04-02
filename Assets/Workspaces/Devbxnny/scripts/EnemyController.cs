@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyController : ActorController
@@ -10,9 +11,10 @@ public class EnemyController : ActorController
     [SerializeField] private float attackCooldown = 1f;
 
     private float attackTimer;
-
     private Transform visuals;
     private Animator animator;
+
+    public Action OnEnemyDied;
 
     protected override void Awake()
     {
@@ -89,5 +91,11 @@ public class EnemyController : ActorController
     public void SetPlayer(Transform target)
     {
         player = target;
+    }
+
+    public override void Die()
+    {
+        OnEnemyDied?.Invoke();
+        base.Die();
     }
 }
