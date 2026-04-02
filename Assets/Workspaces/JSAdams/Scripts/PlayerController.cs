@@ -53,8 +53,8 @@ public class PlayerController : ActorController
         if (controls.Player.Attack.triggered)
         {
             Attack();
-            //ill add attack and death anim later, just want to get the basic movement and attack working first
-            //animator.SetTrigger("Attack");
+
+            animator.SetTrigger("Attack");
         }
     }
 }

@@ -521,6 +521,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7708993916368335011, guid: 30716104fa1e65e479d31e3ab8c96354, type: 3}
   m_PrefabInstance: {fileID: 5419520494196811190}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &718524933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 103555319612543653, guid: 30716104fa1e65e479d31e3ab8c96354, type: 3}
+  m_PrefabInstance: {fileID: 5419520494196811190}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32095640313699944bf319e68679df6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +597,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 2063839013093498940, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: targetActor
+      value: 
+      objectReference: {fileID: 718524933}
     - target: {fileID: 2063839013093498940, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
       propertyPath: healthbarText
       value: 
