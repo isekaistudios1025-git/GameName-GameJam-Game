@@ -1,8 +1,14 @@
 // ----- ActorController.cs START -----
 using UnityEngine;
+using System;
 
 public abstract class ActorController : MonoBehaviour
 {
+
+    //events
+    public event Action<float, float> OnHealthChanged;
+
+
     [Header("Movement")]
     [SerializeField] protected float moveSpeed = 6f;
 
@@ -31,6 +37,8 @@ public abstract class ActorController : MonoBehaviour
         rb.freezeRotation = true;
 
         currentHealth = maxHealth;
+
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
     protected virtual void FixedUpdate()
@@ -73,13 +81,22 @@ public abstract class ActorController : MonoBehaviour
     public virtual void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);    
+
 
         Debug.Log($"{name} took {damage} damage. HP: {currentHealth}");
+
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
         if (currentHealth <= 0)
         {
             Die();
         }
+    }
+
+    public virtual void InitializeHealth()
+    {
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
     public virtual void Die()
     {
