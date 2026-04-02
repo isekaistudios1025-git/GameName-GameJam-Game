@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class GameOverMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseMenuPanel;
+    [SerializeField] private GameObject gameOverMenuPanel;
     [SerializeField] private Button replayButton;
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button quitButton;
     void Start()
     {
-        pauseMenuPanel.SetActive(false);
+        gameOverMenuPanel.SetActive(false);
 
         replayButton.onClick.AddListener(OnReplayButtonClicked);
         mainMenuButton.onClick.AddListener(OnMainMenuButtonClicked);
