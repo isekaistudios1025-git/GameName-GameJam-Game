@@ -57,5 +57,11 @@ public class PlayerController : ActorController
             animator.SetTrigger("Attack");
         }
     }
+
+    public override void Hurt()
+    {
+        base.Hurt();
+        animator.SetTrigger("Hurt");
+    }
 }
 // ----- PlayerController.cs END -----
