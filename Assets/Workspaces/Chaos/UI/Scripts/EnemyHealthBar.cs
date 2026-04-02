@@ -1,3 +1,5 @@
+//----- EnemyHealthBar.cs START-----
+
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -61,3 +63,4 @@ public class EnemyHealthBar : MonoBehaviour
     }
 
 }
+//----- EnemyHealthBar.cs END-----

@@ -1,3 +1,5 @@
+//----- EnemyController.cs START-----
+
 using System;
 using System.Collections;
 using UnityEngine;
@@ -14,10 +16,15 @@ public class EnemyController : ActorController
     [Header("Enemy Death")]
     [SerializeField] private float deathDelay = 1f;
 
+    [Header("Enemy Rewards")]
+    [SerializeField] private int scoreValue = 100;
+
     private float attackTimer;
     private Transform visuals;
     private Animator animator;
     private bool isDead = false;
+
+    private PlayerState playerState;
 
     public Action OnEnemyDied;
 
@@ -25,12 +32,19 @@ public class EnemyController : ActorController
     {
         base.Awake();
 
+  
         visuals = transform.Find("Visuals");
 
         if (visuals != null)
         {
             animator = visuals.GetComponent<Animator>();
         }
+        GameObject playerObject = GameObject.Find("Player");
+        if (playerObject != null)
+        {
+            playerState = playerObject.GetComponent<PlayerState>();
+        }
+
     }
 
     void Update()
@@ -140,6 +154,11 @@ public class EnemyController : ActorController
             animator.SetTrigger("Die");
         }
 
+        if (playerState != null)
+        {
+            playerState.AddScore(scoreValue);
+        }
+
         OnEnemyDied?.Invoke();
         StartCoroutine(DeathRoutine());
     }
@@ -150,3 +169,5 @@ public class EnemyController : ActorController
         base.Die();
     }
 }
+
+//----- EnemyController.cs END-----
