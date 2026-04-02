@@ -1,13 +1,30 @@
 using UnityEngine;
 
+[System.Serializable]
+public class EnemySpawnEntry
+{
+    public GameObject enemyPrefab;
+    public int enemyCount = 1;
+    public float spawnInterval = 1f;
+}
+
+[System.Serializable]
+public class EnemyWave
+{
+    public EnemySpawnEntry[] enemiesInWave;
+}
+
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Spawn Settings")]
-    [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private float spawnInterval = 2f;
+    [Header("Wave Settings")]
+    [SerializeField] private EnemyWave[] waves;
 
-    private float timer;
     private Transform player;
+    private float timer;
+
+    private int currentWaveIndex = 0;
+    private int currentEnemyTypeIndex = 0;
+    private int spawnedCountForCurrentType = 0;
 
     private void Start()
     {
@@ -22,22 +39,44 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         if (player == null) return;
+        if (currentWaveIndex >= waves.Length) return;
+
+        EnemyWave currentWave = waves[currentWaveIndex];
+
+        if (currentEnemyTypeIndex >= currentWave.enemiesInWave.Length)
+        {
+            currentWaveIndex++;
+            currentEnemyTypeIndex = 0;
+            spawnedCountForCurrentType = 0;
+            timer = 0f;
+            return;
+        }
+
+        EnemySpawnEntry currentEntry = currentWave.enemiesInWave[currentEnemyTypeIndex];
 
         timer += Time.deltaTime;
 
-        if (timer >= spawnInterval)
+        if (timer >= currentEntry.spawnInterval)
         {
-            SpawnEnemy();
+            SpawnEnemy(currentEntry.enemyPrefab);
+            spawnedCountForCurrentType++;
+            timer = 0f;
+        }
+
+        if (spawnedCountForCurrentType >= currentEntry.enemyCount)
+        {
+            currentEnemyTypeIndex++;
+            spawnedCountForCurrentType = 0;
             timer = 0f;
         }
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy(GameObject prefabToSpawn)
     {
         Vector3 spawnPosition = transform.position;
         spawnPosition.y = player.position.y;
 
-        GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        GameObject spawnedEnemy = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
 
         EnemyController enemyController = spawnedEnemy.GetComponent<EnemyController>();
 
