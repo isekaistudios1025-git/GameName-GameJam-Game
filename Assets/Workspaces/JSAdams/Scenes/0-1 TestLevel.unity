@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 316945485}
   - component: {fileID: 316945484}
   m_Layer: 0
-  m_Name: SpawnZoneTest2
+  m_Name: SpawnZoneTest(PeaceBaby)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 793755440}
   - component: {fileID: 793755439}
   m_Layer: 0
-  m_Name: SpawnZoneTest1
+  m_Name: SpawnZoneTest(DevBunny)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
