@@ -5,7 +5,9 @@ using TMPro;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Slider healthbarSlider;
+    [SerializeField] private Image healthbarFillImage;
     [SerializeField] private TextMeshProUGUI healthbarText;
+    [SerializeField] private TextMeshProUGUI playerLivesText;
     [SerializeField] private ActorController targetActor;
 
    
@@ -17,6 +19,8 @@ public class HealthBar : MonoBehaviour
             targetActor.OnHealthChanged += UpdateHeathBar;
             targetActor.InitializeHealth();
         }
+
+      
 
     }
 
@@ -30,7 +34,11 @@ public class HealthBar : MonoBehaviour
     }
     private void UpdateHeathBar(float currentHealth, float maxHealth)
     {
-        healthbarSlider.value = currentHealth / maxHealth;
+        if (healthbarSlider != null)
+        {
+            healthbarSlider.value = currentHealth / maxHealth;
+        }
+
         healthbarText.text = $"{currentHealth}/{maxHealth}";
     }
 
