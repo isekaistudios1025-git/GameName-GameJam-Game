@@ -1,3 +1,5 @@
+//----- EnemySpawner.cs START-----
+
 using UnityEngine;
 
 [System.Serializable]
@@ -186,3 +188,5 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 }
+
+//----- EnemySpawner.cs END-----

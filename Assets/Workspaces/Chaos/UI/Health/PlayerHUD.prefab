@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 5194245681674751079}
   - component: {fileID: 5506996263881094851}
   - component: {fileID: 273604333313350673}
+  - component: {fileID: 1759635528482224909}
   m_Layer: 5
   m_Name: PlayerHUD
   m_TagString: Untagged
@@ -258,6 +259,20 @@ MonoBehaviour:
   WaveText: {fileID: 7573326080015085583}
   EnemiesNumberText: {fileID: 7503873053837234441}
   enemySpawner: {fileID: 0}
+--- !u!114 &1759635528482224909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723981553041346799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e14568045e4dfa438b0bd908e0f3373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LivesDisplay
+  playerState: {fileID: 0}
+  livesText: {fileID: 4647509162907159779}
 --- !u!1 &1725148976530022047
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddbffe57d0e7574788d709d2a9eb970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimatedScore
+  playerState: {fileID: 0}
   scoreText: {fileID: 8048778553703617014}
   countSpeed: 200
   popScale: 1.1
@@ -560,7 +576,7 @@ GameObject:
   - component: {fileID: 4788898264365956917}
   - component: {fileID: 7518848938048325117}
   m_Layer: 5
-  m_Name: HeathBarParent
+  m_Name: HealthBarParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

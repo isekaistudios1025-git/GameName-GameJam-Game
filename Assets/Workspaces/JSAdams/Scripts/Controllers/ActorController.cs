@@ -26,12 +26,21 @@ public abstract class ActorController : MonoBehaviour
     [SerializeField] protected float hurtStunDuration = 0.1f;
     protected bool canMove = true;
 
+    [Header("Audio")]
+    [SerializeField] protected AudioClip attackSFX;
+    [SerializeField] protected AudioClip hurtSFX;
+    [SerializeField] protected AudioClip deathSFX;
+    [SerializeField] protected AudioClip footstepSFX;
+    [SerializeField] protected float footstepInterval = 0.35f;
+
+    protected float footstepTimer;
 
     protected Rigidbody rb;
     protected Vector3 moveDirection;
 
     // shared facing direction for visuals + attack direction
     protected float facingDirection = 1f;
+
 
     protected virtual void Awake()
     {
@@ -48,6 +57,8 @@ public abstract class ActorController : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
+
+        HandleFootsteps();
     }
 
     public virtual void Move(Vector3 direction)
@@ -69,7 +80,10 @@ public abstract class ActorController : MonoBehaviour
 
     public virtual void Attack()
     {
-        Debug.Log($"{name} attacks");
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX(attackSFX);
+        }
 
         Vector3 attackOrigin = transform.position + Vector3.right * facingDirection * attackOffset;
 
@@ -90,6 +104,11 @@ public abstract class ActorController : MonoBehaviour
     }
     public virtual void TakeDamage(int damage)
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX(hurtSFX);
+        }
+
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
@@ -117,7 +136,11 @@ public abstract class ActorController : MonoBehaviour
 
     public virtual void Die()
     {
-        Debug.Log($"{name} died");
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX(deathSFX);
+        }
 
         Destroy(gameObject);
     }
@@ -152,6 +175,26 @@ public abstract class ActorController : MonoBehaviour
         canMove = true;
     }
 
+    protected virtual void HandleFootsteps()
+    {
+        if (moveDirection == Vector3.zero || !canMove)
+        {
+            footstepTimer = 0f;
+            return;
+        }
+
+        footstepTimer += Time.fixedDeltaTime;
+
+        if (footstepTimer >= footstepInterval)
+        {
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX(footstepSFX);
+            }
+
+            footstepTimer = 0f;
+        }
+    }
 
 
     //------------------DEBUG------------------
