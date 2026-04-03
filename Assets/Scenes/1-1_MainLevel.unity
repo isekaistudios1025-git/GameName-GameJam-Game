@@ -4197,6 +4197,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 1309103672827179165, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309103672827179165, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309103672827179165, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309103672827179165, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821441428741839515, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821441428741839515, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821441428741839515, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821441428741839515, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2629326346481961419, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2629326346481961419, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2629326346481961419, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5431857717650586210, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5082,7 +5126,7 @@ SceneRoots:
   - {fileID: 1641330589}
   - {fileID: 517423751}
   - {fileID: 272509480}
-  - {fileID: 1226176376}
-  - {fileID: 1327859604}
   - {fileID: 1754774188}
   - {fileID: 1077316272}
+  - {fileID: 1226176376}
+  - {fileID: 1327859604}

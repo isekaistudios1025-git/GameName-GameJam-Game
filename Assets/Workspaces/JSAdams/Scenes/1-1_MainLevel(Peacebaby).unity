@@ -848,6 +848,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1641330589}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &366865738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1555432744169992970, guid: 1c4c3cb1c4ee55d42983ba77024210fe, type: 3}
+  m_PrefabInstance: {fileID: 1327859604}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &474077622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,6 +2550,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3818088389151704469, guid: 1c4c3cb1c4ee55d42983ba77024210fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818088389151704469, guid: 1c4c3cb1c4ee55d42983ba77024210fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818088389151704469, guid: 1c4c3cb1c4ee55d42983ba77024210fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 366865738}
+    - target: {fileID: 3818088389151704469, guid: 1c4c3cb1c4ee55d42983ba77024210fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533726629261954, guid: 1c4c3cb1c4ee55d42983ba77024210fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533726629261954, guid: 1c4c3cb1c4ee55d42983ba77024210fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533726629261954, guid: 1c4c3cb1c4ee55d42983ba77024210fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6466761130839991219, guid: 1c4c3cb1c4ee55d42983ba77024210fe, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4165,6 +4198,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 273604333313350673, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: enemySpawner
+      value: 
+      objectReference: {fileID: 1921966344}
     - target: {fileID: 723981553041346799, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
       propertyPath: m_Name
       value: PlayerHUD
@@ -4445,6 +4482,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1641330589}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1921966344 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3795531205091353070, guid: db91b92c5f61dba49a02b38b7f19b68d, type: 3}
+  m_PrefabInstance: {fileID: 1077316272}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d556e18fba97ada41964e632ccb7fa73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
 --- !u!114 &1930285708 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 991610535725840271, guid: 30716104fa1e65e479d31e3ab8c96354, type: 3}
