@@ -101,7 +101,9 @@ public class PlayerController : ActorController
         currentHealth = maxHealth;
         InitializeHealth();
 
-        transform.position = spawnPosition;
+        rb.position = spawnPosition;
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
 
         canMove = true;
         moveDirection = Vector3.zero;
@@ -111,8 +113,8 @@ public class PlayerController : ActorController
     }
     private void GameOver()
     {
-        Debug.Log("GAME OVER");
-        gameObject.SetActive(false);
+        Debug.Log("GAME OVER"); 
+        FindFirstObjectByType<GameOverMenu>()?.Show();
     }
 
 }

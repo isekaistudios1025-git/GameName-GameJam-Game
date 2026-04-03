@@ -3637,6 +3637,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516599724}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1539300607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 103555319612543653, guid: 30716104fa1e65e479d31e3ab8c96354, type: 3}
+  m_PrefabInstance: {fileID: 272509480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32095640313699944bf319e68679df6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+--- !u!114 &1539300608 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 991610535725840271, guid: 30716104fa1e65e479d31e3ab8c96354, type: 3}
+  m_PrefabInstance: {fileID: 272509480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2864168b5c6ac24aa534fb8d52cb100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerState
 --- !u!1 &1581782122
 GameObject:
   m_ObjectHideFlags: 0
@@ -4325,6 +4347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 891512930618980766, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: playerState
+      value: 
+      objectReference: {fileID: 1539300608}
     - target: {fileID: 1309103672827179165, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4341,6 +4367,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1759635528482224909, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: playerState
+      value: 
+      objectReference: {fileID: 1539300608}
     - target: {fileID: 1821441428741839515, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4357,6 +4387,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2063839013093498940, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
+      propertyPath: targetActor
+      value: 
+      objectReference: {fileID: 1539300607}
     - target: {fileID: 2629326346481961419, guid: 5598c458c4ca82c4a9518b2ffd52cd62, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

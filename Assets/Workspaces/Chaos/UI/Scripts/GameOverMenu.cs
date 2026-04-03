@@ -57,6 +57,11 @@ public class GameOverMenu : MonoBehaviour
     {
         Time.timeScale = isPaused ? 0f : 1f;
     }
+    public void Show()
+    {
+        gameOverMenuPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
 
-    
+
 }
