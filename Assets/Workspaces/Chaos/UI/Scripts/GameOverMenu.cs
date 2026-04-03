@@ -28,7 +28,8 @@ public class GameOverMenu : MonoBehaviour
 
     private void OnReplayButtonClicked()
     {
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+       SetPauseState(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnQuitButtonClicked()
@@ -60,7 +61,7 @@ public class GameOverMenu : MonoBehaviour
     public void Show()
     {
         gameOverMenuPanel.SetActive(true);
-        Time.timeScale = 0f;
+        SetPauseState(true);
     }
 
 
