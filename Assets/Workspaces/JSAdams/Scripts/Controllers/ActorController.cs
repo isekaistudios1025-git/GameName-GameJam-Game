@@ -20,8 +20,12 @@ public abstract class ActorController : MonoBehaviour
 
     [Header("Health")]
     [SerializeField] protected int maxHealth = 3;
-
     protected int currentHealth;
+
+    [Header("Hit Stun")]
+    [SerializeField] protected float hurtStunDuration = 0.1f;
+    protected bool canMove = true;
+
 
     protected Rigidbody rb;
     protected Vector3 moveDirection;
@@ -48,6 +52,12 @@ public abstract class ActorController : MonoBehaviour
 
     public virtual void Move(Vector3 direction)
     {
+        if (!canMove)
+        {
+            moveDirection = Vector3.zero;
+            return;
+        }
+
         moveDirection = direction.normalized;
 
         // update facing without flipping root collider
@@ -71,7 +81,7 @@ public abstract class ActorController : MonoBehaviour
 
             ActorController other = hit.GetComponent<ActorController>();
 
-            if (other != null)
+            if (other != null && other.GetType() != GetType())
             {
                 other.TakeDamage(attackDamage);
                 Debug.Log($"{name} hit {other.name} for {attackDamage}");
@@ -81,8 +91,10 @@ public abstract class ActorController : MonoBehaviour
     public virtual void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);    
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
+        Hurt();
+        ApplyHitStun();
 
         Debug.Log($"{name} took {damage} damage. HP: {currentHealth}");
 
@@ -98,6 +110,11 @@ public abstract class ActorController : MonoBehaviour
     {
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
+    public virtual void Hurt()
+    {
+        Debug.Log($"{name} hurt");
+    }
+
     public virtual void Die()
     {
         Debug.Log($"{name} died");
@@ -110,6 +127,7 @@ public abstract class ActorController : MonoBehaviour
         Debug.Log($"{name} jumps");
     }
 
+
     public virtual void Interact()
     {
         Debug.Log($"{name} interacts");
@@ -118,6 +136,26 @@ public abstract class ActorController : MonoBehaviour
     // future shared hook for invincible mode
     // protected bool isInvincible;
     // public virtual void SetInvincible(bool value) => isInvincible = value;
+
+    //------------------HELPERS------------------
+
+
+
+    protected virtual void ApplyHitStun()
+    {
+        canMove = false;
+        Invoke(nameof(EndHitStun), hurtStunDuration);
+    }
+
+    protected virtual void EndHitStun()
+    {
+        canMove = true;
+    }
+
+
+
+    //------------------DEBUG------------------
+
 
     private void OnDrawGizmosSelected()
     {

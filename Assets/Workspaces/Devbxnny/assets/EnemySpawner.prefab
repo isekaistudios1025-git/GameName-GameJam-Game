@@ -103,6 +103,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d556e18fba97ada41964e632ccb7fa73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  enemyPrefab: {fileID: 7260229694137965179, guid: 9427160b317acd84ab056d40fdf54bfe, type: 3}
-  spawnInterval: 2
-  player: {fileID: 0}
+  waves:
+  - enemiesInWave:
+    - enemyPrefab: {fileID: 7260229694137965179, guid: 9427160b317acd84ab056d40fdf54bfe, type: 3}
+      enemyCount: 2
+      spawnInterval: 1
+    - enemyPrefab: {fileID: 7260229694137965179, guid: 9427160b317acd84ab056d40fdf54bfe, type: 3}
+      enemyCount: 1
+      spawnInterval: 1
+  - enemiesInWave:
+    - enemyPrefab: {fileID: 7260229694137965179, guid: 9427160b317acd84ab056d40fdf54bfe, type: 3}
+      enemyCount: 3
+      spawnInterval: 1
+    - enemyPrefab: {fileID: 7260229694137965179, guid: 9427160b317acd84ab056d40fdf54bfe, type: 3}
+      enemyCount: 4
+      spawnInterval: 1
+  spawnPoints: []
+  minimumDistanceFromPlayer: 2

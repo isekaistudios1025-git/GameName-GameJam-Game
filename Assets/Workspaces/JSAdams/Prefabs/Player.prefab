@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 103555319612543653}
   - component: {fileID: 7985616053077311828}
   - component: {fileID: 7132921302630204002}
+  - component: {fileID: 991610535725840271}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -49,6 +50,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 6
+  attackRadius: 1
+  attackOffset: 1
+  attackDamage: 1
+  maxHealth: 10
+  hurtStunDuration: 0.1
 --- !u!54 &7985616053077311828
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -72,7 +78,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -99,6 +105,20 @@ CapsuleCollider:
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: -0.1, y: -0.5, z: 0}
+--- !u!114 &991610535725840271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226720686697842037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2864168b5c6ac24aa534fb8d52cb100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerState
+  startingLives: 3
+  startingScore: 0
 --- !u!1 &1685193388427061085
 GameObject:
   m_ObjectHideFlags: 0
