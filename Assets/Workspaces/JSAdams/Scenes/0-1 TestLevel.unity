@@ -1259,7 +1259,7 @@ PrefabInstance:
     - target: {fileID: 103555319612543653, guid: 30716104fa1e65e479d31e3ab8c96354, type: 3}
       propertyPath: attackSFX
       value: 
-      objectReference: {fileID: 8300000, guid: ce13382ffbb5eba4ab74947c8cff2a58, type: 3}
+      objectReference: {fileID: 8300000, guid: 03fa1dd0d6d8b7b488a7694bfd306b73, type: 3}
     - target: {fileID: 103555319612543653, guid: 30716104fa1e65e479d31e3ab8c96354, type: 3}
       propertyPath: footstepSFX
       value: 
