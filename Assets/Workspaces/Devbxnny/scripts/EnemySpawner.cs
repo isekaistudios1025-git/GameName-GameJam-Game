@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
 
     private bool finishedSpawningWave = false;
 
-    public event System.Action OnSpawnerComplete;
+    public event System.Action<EnemySpawner> OnSpawnerComplete;
     private bool isActive = false;
 
     private void Start()
@@ -188,7 +188,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Debug.Log("All waves completed.");
             isActive = false;
-            OnSpawnerComplete?.Invoke();
+            OnSpawnerComplete?.Invoke(this);
         }
     }
 
