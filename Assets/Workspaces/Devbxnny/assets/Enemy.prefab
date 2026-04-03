@@ -359,7 +359,7 @@ MonoBehaviour:
   attackSFX: {fileID: 8300000, guid: a9898bbfc1df3ef488c5fe7b3167fd94, type: 3}
   hurtSFX: {fileID: 8300000, guid: f438bed7538d44e46896ec34c465a4a3, type: 3}
   deathSFX: {fileID: 8300000, guid: 1d89a228e86018f4b98cf02b11992ac2, type: 3}
-  footstepSFX: {fileID: 8300000, guid: 96efc9172ee008746bf65d82447dc093, type: 3}
+  footstepSFX: {fileID: 0}
   footstepInterval: 0.35
   player: {fileID: 0}
   stopDistance: 1.5

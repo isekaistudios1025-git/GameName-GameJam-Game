@@ -10,6 +10,7 @@ public class EnemySpawnEntry
     public float spawnInterval = 1f;
 }
 
+
 [System.Serializable]
 public class EnemyWave
 {
@@ -41,6 +42,9 @@ public class EnemySpawner : MonoBehaviour
 
     private bool finishedSpawningWave = false;
 
+    public event System.Action OnSpawnerComplete;
+    private bool isActive = false;
+
     private void Start()
     {
         GameObject foundPlayer = GameObject.Find("Player");
@@ -58,6 +62,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        if (!isActive) return;
+
         if (player == null) return;
         if (currentWaveIndex >= waves.Length) return;
 
@@ -103,6 +109,14 @@ public class EnemySpawner : MonoBehaviour
         {
             finishedSpawningWave = true;
         }
+    }
+
+    public void BeginSpawn()
+    {
+        if (isActive) return;
+
+        isActive = true;
+        Debug.Log("EnemySpawner: Spawn started.");
     }
 
     private void SpawnEnemy(GameObject prefabToSpawn)
@@ -173,6 +187,8 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             Debug.Log("All waves completed.");
+            isActive = false;
+            OnSpawnerComplete?.Invoke();
         }
     }
 
