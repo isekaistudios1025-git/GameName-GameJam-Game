@@ -31,7 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5702972062035810635}
   - {fileID: 7938947398125529384}
@@ -55,6 +55,11 @@ MonoBehaviour:
   attackDamage: 1
   maxHealth: 10
   hurtStunDuration: 0.1
+  attackSFX: {fileID: 8300000, guid: ce13382ffbb5eba4ab74947c8cff2a58, type: 3}
+  hurtSFX: {fileID: 8300000, guid: 10371463b2181dc4591e5172cd3cf6fa, type: 3}
+  deathSFX: {fileID: 8300000, guid: d1a6a2d8b9b296b43811818e43fd0b5d, type: 3}
+  footstepSFX: {fileID: 8300000, guid: 1035847a9eeb5c440a2935909042e78f, type: 3}
+  footstepInterval: 0.35
 --- !u!54 &7985616053077311828
 Rigidbody:
   m_ObjectHideFlags: 0
