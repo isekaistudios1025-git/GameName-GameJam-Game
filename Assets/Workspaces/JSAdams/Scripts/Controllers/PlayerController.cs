@@ -131,7 +131,7 @@ public class PlayerController : ActorController
     }
     private void GameOver()
     {
-        Debug.Log("GAME OVER"); 
+        Debug.Log("GAME OVER");
         FindFirstObjectByType<GameOverMenu>()?.Show();
     }
 
@@ -146,6 +146,15 @@ public class PlayerController : ActorController
     public void UnlockZone()
     {
         zoneLocked = false;
+    }
+
+    //pickup mechanics
+    public void FullHeal()
+    {
+        currentHealth = maxHealth;
+        InitializeHealth();
+
+        Debug.Log("Player healed to full health.");
     }
 }
 // ----- PlayerController.cs END -----
