@@ -13,6 +13,10 @@ public class PlayerController : ActorController
     private Transform visuals;
     private Animator animator;
 
+    private bool zoneLocked = false;
+    private float leftLimit;
+    private float rightLimit;
+
     protected override void Awake()
     {
         base.Awake();
@@ -55,6 +59,13 @@ public class PlayerController : ActorController
         if (moveInput.x != 0)
         {
             visuals.localScale = new Vector3(Mathf.Sign(moveInput.x), 1f, 1f);
+        }
+        //zone locking to keep player within certain bounds during cutscenes or events
+        if (zoneLocked)
+        {
+            Vector3 pos = transform.position;
+            pos.x = Mathf.Clamp(pos.x, leftLimit, rightLimit);
+            transform.position = pos;
         }
 
         if (controls.Player.Attack.triggered)
@@ -117,5 +128,17 @@ public class PlayerController : ActorController
         FindFirstObjectByType<GameOverMenu>()?.Show();
     }
 
+    //road block methods for locking player in certain zones during cutscenes or events
+    public void LockZone(float leftX, float rightX)
+    {
+        zoneLocked = true;
+        leftLimit = Mathf.Min(leftX, rightX);
+        rightLimit = Mathf.Max(leftX, rightX);
+    }
+
+    public void UnlockZone()
+    {
+        zoneLocked = false;
+    }
 }
 // ----- PlayerController.cs END -----

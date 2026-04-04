@@ -28,7 +28,7 @@ public class GameOverMenu : MonoBehaviour
 
     private void OnReplayButtonClicked()
     {
-        Time.timeScale = 1f;
+       SetPauseState(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -46,11 +46,11 @@ public class GameOverMenu : MonoBehaviour
 
     private void OnMainMenuButtonClicked()
     {
-        Time.timeScale = 1f;
+        SetPauseState(false);
         SceneManager.LoadScene(0);
     }
 
-
+     
 
     //Helper method to set the time scale and toggle the pause menu visibility
 
@@ -61,7 +61,7 @@ public class GameOverMenu : MonoBehaviour
     public void Show()
     {
         gameOverMenuPanel.SetActive(true);
-        Time.timeScale = 0f;
+        SetPauseState(true);
     }
 
 
