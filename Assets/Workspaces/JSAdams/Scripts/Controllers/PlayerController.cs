@@ -50,17 +50,25 @@ public class PlayerController : ActorController
     {
         moveInput = controls.Player.Move.ReadValue<Vector2>();
 
-        Move(new Vector3(moveInput.x, 0f, moveInput.y));
+        if (!isAttacking)
+        {
+            Move(new Vector3(moveInput.x, 0f, moveInput.y));
+        }
+        else
+        {
+            Move(Vector3.zero);
+        }
 
         // animate walk / idle
-        animator.SetBool("IsMoving", moveInput != Vector2.zero);
+        animator.SetBool("IsMoving", moveDirection != Vector3.zero);
 
         // flip only visuals
-        if (moveInput.x != 0)
+        if (moveInput.x != 0 && !isAttacking)
         {
             visuals.localScale = new Vector3(Mathf.Sign(moveInput.x), 1f, 1f);
         }
-        //zone locking to keep player within certain bounds during cutscenes or events
+
+        // zone locking to keep player within certain bounds during cutscenes or events
         if (zoneLocked)
         {
             Vector3 pos = transform.position;
@@ -68,11 +76,10 @@ public class PlayerController : ActorController
             transform.position = pos;
         }
 
-        if (controls.Player.Attack.triggered)
+        if (controls.Player.Attack.triggered && canAttack && !isAttacking)
         {
-            Attack();
-
             animator.SetTrigger("Attack");
+            StartCoroutine(AttackRoutine());
         }
     }
 

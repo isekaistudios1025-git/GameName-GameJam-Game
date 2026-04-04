@@ -5281,6 +5281,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 484212444}
     - target: {fileID: 1104996751778917372, guid: e7955200d967254429c8f838822bb49a, type: 3}
+      propertyPath: barrierExit
+      value: 
+      objectReference: {fileID: 201996179}
+    - target: {fileID: 1104996751778917372, guid: e7955200d967254429c8f838822bb49a, type: 3}
+      propertyPath: barrierEntry
+      value: 
+      objectReference: {fileID: 1471657105}
+    - target: {fileID: 1104996751778917372, guid: e7955200d967254429c8f838822bb49a, type: 3}
+      propertyPath: spawnerEntries.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1104996751778917372, guid: e7955200d967254429c8f838822bb49a, type: 3}
       propertyPath: 'progressionBlockers.Array.data[0]'
       value: 
       objectReference: {fileID: 1471657103}
@@ -5288,6 +5300,10 @@ PrefabInstance:
       propertyPath: 'progressionBlockers.Array.data[1]'
       value: 
       objectReference: {fileID: 201996177}
+    - target: {fileID: 1104996751778917372, guid: e7955200d967254429c8f838822bb49a, type: 3}
+      propertyPath: spawnerEntries.Array.data[0].spawner
+      value: 
+      objectReference: {fileID: 484212444}
     - target: {fileID: 4015683566185793058, guid: e7955200d967254429c8f838822bb49a, type: 3}
       propertyPath: m_LocalScale.z
       value: 8.6482
