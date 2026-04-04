@@ -17,9 +17,16 @@ public class PlayerController : ActorController
     private float leftLimit;
     private float rightLimit;
 
+    [SerializeField] private float damageBoostDuration = 5f;
+    private int baseAttackDamage;
+    private bool damageBoostActive = false;
+    private Coroutine damageBoostCoroutine;
+
     protected override void Awake()
     {
         base.Awake();
+
+        baseAttackDamage = attackDamage;
 
         controls = new PlayerControls();
 
@@ -50,17 +57,25 @@ public class PlayerController : ActorController
     {
         moveInput = controls.Player.Move.ReadValue<Vector2>();
 
-        Move(new Vector3(moveInput.x, 0f, moveInput.y));
+        if (!isAttacking)
+        {
+            Move(new Vector3(moveInput.x, 0f, moveInput.y));
+        }
+        else
+        {
+            Move(Vector3.zero);
+        }
 
         // animate walk / idle
-        animator.SetBool("IsMoving", moveInput != Vector2.zero);
+        animator.SetBool("IsMoving", moveDirection != Vector3.zero);
 
         // flip only visuals
-        if (moveInput.x != 0)
+        if (moveInput.x != 0 && !isAttacking)
         {
             visuals.localScale = new Vector3(Mathf.Sign(moveInput.x), 1f, 1f);
         }
-        //zone locking to keep player within certain bounds during cutscenes or events
+
+        // zone locking to keep player within certain bounds during cutscenes or events
         if (zoneLocked)
         {
             Vector3 pos = transform.position;
@@ -68,11 +83,10 @@ public class PlayerController : ActorController
             transform.position = pos;
         }
 
-        if (controls.Player.Attack.triggered)
+        if (controls.Player.Attack.triggered && canAttack && !isAttacking)
         {
-            Attack();
-
             animator.SetTrigger("Attack");
+            StartCoroutine(AttackRoutine());
         }
     }
 
@@ -124,7 +138,7 @@ public class PlayerController : ActorController
     }
     private void GameOver()
     {
-        Debug.Log("GAME OVER"); 
+        Debug.Log("GAME OVER");
         FindFirstObjectByType<GameOverMenu>()?.Show();
     }
 
@@ -139,6 +153,41 @@ public class PlayerController : ActorController
     public void UnlockZone()
     {
         zoneLocked = false;
+    }
+
+    //pickup mechanics
+    public void FullHeal()
+    {
+        currentHealth = maxHealth;
+        InitializeHealth();
+
+        Debug.Log("Player healed to full health.");
+    }
+
+    public void ApplyDamageBoost(int bonusDamage)
+    {
+        if (damageBoostCoroutine != null)
+        {
+            StopCoroutine(damageBoostCoroutine);
+        }
+
+        damageBoostCoroutine = StartCoroutine(DamageBoostRoutine(bonusDamage));
+    }
+
+    private System.Collections.IEnumerator DamageBoostRoutine(int bonusDamage)
+    {
+        damageBoostActive = true;
+        attackDamage = baseAttackDamage + bonusDamage;
+
+        Debug.Log("Damage boost applied.");
+
+        yield return new WaitForSeconds(damageBoostDuration);
+
+        attackDamage = baseAttackDamage;
+        damageBoostActive = false;
+        damageBoostCoroutine = null;
+
+        Debug.Log("Damage boost ended.");
     }
 }
 // ----- PlayerController.cs END -----

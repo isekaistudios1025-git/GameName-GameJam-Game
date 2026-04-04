@@ -17,6 +17,12 @@ public abstract class ActorController : MonoBehaviour
     [SerializeField] protected float attackOffset = 1f;
     [SerializeField] protected int attackDamage = 1;
 
+    [Header("Attack Timing")]
+    [SerializeField] protected float attackDuration = 0.25f;
+    [SerializeField] protected float attackCooldown = 0.4f;
+
+    protected bool isAttacking = false;
+    protected bool canAttack = true;
 
     [Header("Health")]
     [SerializeField] protected int maxHealth = 3;
@@ -63,7 +69,7 @@ public abstract class ActorController : MonoBehaviour
 
     public virtual void Move(Vector3 direction)
     {
-        if (!canMove)
+        if (!canMove || isAttacking)
         {
             moveDirection = Vector3.zero;
             return;
@@ -102,6 +108,28 @@ public abstract class ActorController : MonoBehaviour
             }
         }
     }
+
+    protected virtual System.Collections.IEnumerator AttackRoutine()
+    {
+        canAttack = false;
+        isAttacking = true;
+        canMove = false;
+
+        moveDirection = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
+
+        Attack();
+
+        yield return new WaitForSeconds(attackDuration);
+
+        isAttacking = false;
+        canMove = true;
+
+        yield return new WaitForSeconds(attackCooldown);
+
+        canAttack = true;
+    }
+
     public virtual void TakeDamage(int damage)
     {
         if (AudioManager.Instance != null)

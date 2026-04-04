@@ -10,9 +10,6 @@ public class EnemyController : ActorController
     [SerializeField] private Transform player;
     [SerializeField] private float stopDistance = 1.5f;
 
-    [Header("Enemy Attack")]
-    [SerializeField] private float attackCooldown = 1f;
-
     [Header("Enemy Death")]
     [SerializeField] private float deathDelay = 1f;
 
