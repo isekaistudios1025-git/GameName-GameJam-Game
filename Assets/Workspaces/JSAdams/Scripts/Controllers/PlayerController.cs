@@ -17,9 +17,16 @@ public class PlayerController : ActorController
     private float leftLimit;
     private float rightLimit;
 
+    [SerializeField] private float damageBoostDuration = 5f;
+    private int baseAttackDamage;
+    private bool damageBoostActive = false;
+    private Coroutine damageBoostCoroutine;
+
     protected override void Awake()
     {
         base.Awake();
+
+        baseAttackDamage = attackDamage;
 
         controls = new PlayerControls();
 
@@ -155,6 +162,32 @@ public class PlayerController : ActorController
         InitializeHealth();
 
         Debug.Log("Player healed to full health.");
+    }
+
+    public void ApplyDamageBoost(int bonusDamage)
+    {
+        if (damageBoostCoroutine != null)
+        {
+            StopCoroutine(damageBoostCoroutine);
+        }
+
+        damageBoostCoroutine = StartCoroutine(DamageBoostRoutine(bonusDamage));
+    }
+
+    private System.Collections.IEnumerator DamageBoostRoutine(int bonusDamage)
+    {
+        damageBoostActive = true;
+        attackDamage = baseAttackDamage + bonusDamage;
+
+        Debug.Log("Damage boost applied.");
+
+        yield return new WaitForSeconds(damageBoostDuration);
+
+        attackDamage = baseAttackDamage;
+        damageBoostActive = false;
+        damageBoostCoroutine = null;
+
+        Debug.Log("Damage boost ended.");
     }
 }
 // ----- PlayerController.cs END -----
