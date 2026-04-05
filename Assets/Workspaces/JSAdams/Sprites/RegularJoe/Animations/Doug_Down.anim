@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Death
+  m_Name: Doug_Down
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 894467560, guid: c0dfb6065c225fa44a57062c66dc245b, type: 3}
+      value: {fileID: 1570150823, guid: 3009044ebe3a2ae49988a52d6aaf49c8, type: 3}
     - time: 0.125
-      value: {fileID: 894467560, guid: c0dfb6065c225fa44a57062c66dc245b, type: 3}
-    - time: 0.25
-      value: {fileID: 894467560, guid: c0dfb6065c225fa44a57062c66dc245b, type: 3}
+      value: {fileID: -1003852114, guid: 3009044ebe3a2ae49988a52d6aaf49c8, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,15 +46,14 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 894467560, guid: c0dfb6065c225fa44a57062c66dc245b, type: 3}
-    - {fileID: 894467560, guid: c0dfb6065c225fa44a57062c66dc245b, type: 3}
-    - {fileID: 894467560, guid: c0dfb6065c225fa44a57062c66dc245b, type: 3}
+    - {fileID: 1570150823, guid: 3009044ebe3a2ae49988a52d6aaf49c8, type: 3}
+    - {fileID: -1003852114, guid: 3009044ebe3a2ae49988a52d6aaf49c8, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.375
+    m_StopTime: 0.25
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

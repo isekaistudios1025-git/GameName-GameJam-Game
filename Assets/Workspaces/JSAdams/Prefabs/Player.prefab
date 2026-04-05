@@ -53,6 +53,8 @@ MonoBehaviour:
   attackRadius: 1
   attackOffset: 1
   attackDamage: 1
+  attackDuration: 0.25
+  attackCooldown: 0.4
   maxHealth: 10
   hurtStunDuration: 0.1
   attackSFX: {fileID: 8300000, guid: ce13382ffbb5eba4ab74947c8cff2a58, type: 3}
@@ -60,6 +62,7 @@ MonoBehaviour:
   deathSFX: {fileID: 8300000, guid: d1a6a2d8b9b296b43811818e43fd0b5d, type: 3}
   footstepSFX: {fileID: 8300000, guid: 1035847a9eeb5c440a2935909042e78f, type: 3}
   footstepInterval: 0.35
+  damageBoostDuration: 5
 --- !u!54 &7985616053077311828
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -206,7 +209,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -903794929, guid: bdcf4d37eb53c484fa719a294c8791dc, type: 3}
+  m_Sprite: {fileID: 1724868612, guid: acb13035b6accd74c9634ad0e0fcd57f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
