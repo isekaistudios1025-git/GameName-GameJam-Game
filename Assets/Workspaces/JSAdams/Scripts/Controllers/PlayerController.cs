@@ -142,6 +142,17 @@ public class PlayerController : ActorController
         FindFirstObjectByType<GameOverMenu>()?.Show();
     }
 
+    // TODO: Handle win condition here
+    // This method could be called by an external trigger (e.g., reaching the end zone, defeating a boss, collecting all objectives)
+    // Example implementation:
+    // public void Win()
+    // {
+    //     canMove = false;
+    //     animator.SetTrigger("Victory"); // if you have a victory animation :D
+    //     Debug.Log("Player wins!");
+    //     FindFirstObjectByType<WinMenu>()?.Show(); // similar to GameOverMenu
+    // }
+
     //road block methods for locking player in certain zones during cutscenes or events
     public void LockZone(float leftX, float rightX)
     {
