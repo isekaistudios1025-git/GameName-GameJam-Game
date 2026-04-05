@@ -26,6 +26,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float minimumDistanceFromPlayer = 2f;
 
+    // Serialized fields for random number generator for endless mode, progressing difficulty, or other features can be added here in the future
+    // story mode, cutscene triggers
+    //breakable objects and props for fighting. with particle effects and sound effects. maybe even destructible environments for more dynamic combat scenarios.
+    //items will be propped up, player and enemy can interact with them. health pickups, temporary buffs, or even environmental hazards that can be used strategically during combat.
+
     private Transform player;
     private float timer;
 
@@ -109,6 +114,9 @@ public class EnemySpawner : MonoBehaviour
         {
             finishedSpawningWave = true;
         }
+
+        //handler for event to destroy spawner. so make one :)
+
     }
 
     public void BeginSpawn()
@@ -190,6 +198,8 @@ public class EnemySpawner : MonoBehaviour
             isActive = false;
             OnSpawnerComplete?.Invoke(this);
         }
+
+        
     }
 
     private void CalculateTotalEnemiesInWave()

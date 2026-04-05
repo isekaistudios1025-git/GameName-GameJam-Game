@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/0-1 TestLevel-Main.unity
     guid: ba9f18ad23f50484cb29d48c35e84525
   - enabled: 1
-    path: Assets/Scenes/1-1_MainLevel.unity
+    path: Assets/Scenes/1-1_GameLoopPrototype.unity
     guid: 9ee6f2ef5f5f1d44aa5c0c06bb2c9a1e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 53b3fa1528c7a664ba4d4d1707dd398a, type: 3}
